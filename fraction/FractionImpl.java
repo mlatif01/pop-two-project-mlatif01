@@ -77,7 +77,10 @@ public class FractionImpl implements Fraction {
      * @param fraction the string representation of the fraction
      */
     public FractionImpl(String fraction) {
+        // Separate the fraction string at the backslash
         String[] nums = fraction.split("/");
+        // Remove all trailing whitespace from either side and
+        // Parse the integer value of the numerator and denominator
         this.numerator = Integer.parseInt(nums[0].trim());
         this.denominator = Integer.parseInt(nums[1].trim());
 
@@ -168,6 +171,7 @@ public class FractionImpl implements Fraction {
      */
     @Override
     public Fraction negate() {
+        // Convert numerator into a negative and join with the denominator
         int newNumerator = this.numerator * -1;
         int newDenominator = this.denominator;
         return new FractionImpl(newNumerator, newDenominator);
@@ -226,6 +230,7 @@ public class FractionImpl implements Fraction {
      */
     @Override
     public int compareTo(Fraction o) {
+        // Make sure o is of type Fraction
         if (o instanceof Fraction) {
             FractionImpl fracB = (FractionImpl)o;
             int numeratorA = this.numerator * fracB.denominator;
