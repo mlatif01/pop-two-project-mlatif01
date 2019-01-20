@@ -233,6 +233,7 @@ public class FractionImpl implements Fraction {
         // Make sure o is of type Fraction
         if (o instanceof Fraction) {
             FractionImpl fracB = (FractionImpl)o;
+            // Perform calculation in order to compare fractions
             int numeratorA = this.numerator * fracB.denominator;
             int numeratorB = fracB.numerator * this.denominator;
             int result = numeratorA - numeratorB;
